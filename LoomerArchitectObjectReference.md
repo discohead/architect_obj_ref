@@ -22,17 +22,17 @@
 			- Returns the number of ticks in the given number of seconds.
 	- *Auxilliary*
 		- `receive data`
-			- Returns a data event sent to any "send data" module with the same parent and the same label parameter.
+			- Returns a data event sent to any `send data` module with the same parent and the same label parameter.
 		- `receive memory`
-			- Returns a memory reference sent to any "send memory" module with the same parent and the same label parameter.
+			- Returns a memory reference sent to any `send memory` module with the same parent and the same label parameter.
 		- `receive MIDI`
-			- Returns a MIDI event sent to any "send MIDI" module with the same parent and the same label parameter.
+			- Returns a MIDI event sent to any `send MIDI` module with the same parent and the same label parameter.
 		- `send data`
-			- Sends received events to all "receive data" modules with the same parent and the same label parameter.
+			- Sends received events to all `receive data` modules with the same parent and the same label parameter.
 		- `send memory`
-			- Sends memory references to all "receive memory" modules with the same parent and the same label parameter.
+			- Sends memory references to all `receive memory` modules with the same parent and the same label parameter.
 		- `send MIDI`
-			- Sends received MIDI events to all "receive MIDI" modules with the same parent and the same label parameter.
+			- Sends received MIDI events to all `receive MIDI` modules with the same parent and the same label parameter.
 		- `thru data`
 			- Returns any received data events. This module is useful for helping organise complicated routing on the graph.
 		- `thru memory`
@@ -246,7 +246,7 @@
 		- `phi`
 			- Returns a constant floating-point phi, where phi is the golden ratio.
 		- `pi`
-			- Returns a constant floating-point phi, where phi is the golden ratio.
+			- Returns a constant floating-point pi.
 		- `signal`
 			- Returns a constant signal object.
 		- `true`
