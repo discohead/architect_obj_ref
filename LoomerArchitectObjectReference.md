@@ -1,0 +1,643 @@
+ - **Built-in**
+	 - *Arrangement*
+		 - `beat ticks`
+			 - 	Returns the number of ticks in a beat of a/b. Passing in 3 and 4, for example, will return the number of beats in three quarter notes. This is a vector processing module and can accept either scalar values (and will then produce a scalar result) or vector values (and will then produce a vector result.)
+		- `get clock`
+			- Returns an integer with the current clock position in ticks since 1.0.001.
+		- `get meter`
+			- Returns the current tempo, time signature numerator, and time signature denominator.
+		- `is nth bar`
+			- Returns true if the clock is at the start of any bar with a multiple of nth. For example, with nth = 2, true will be returned at the start of the 1st, 3rd, 5th, 7th, etc, bars. nth = 1 by default, which will return true at the start of every bar.
+		- `is nth tick`
+			- Returns true if the clock is at a tick position with a multiple of nth. For example, with nth = 200, true will be returned at the the 200th, 400th, 600th, 800th, etc, ticks. nth = 1 by default, which will return true on every tick.
+		- `is playing`
+			- Returns true if the transport is current playing, and false if currently stopped.
+		- `on meter change`
+			- Sends a signal when the tempo or time signature changes.
+		- `on play`
+			- Sends a signal when the transport is started.
+		- `on stop`
+			- Sends a signal when the transport is stopped.
+		- `seconds to ticks`
+			- Returns the number of ticks in the given number of seconds.
+	- *Auxilliary*
+		- `receive data`
+			- Returns a data event sent to any "send data" module with the same parent and the same label parameter.
+		- `receive memory`
+			- Returns a memory reference sent to any "send memory" module with the same parent and the same label parameter.
+		- `receive MIDI`
+			- Returns a MIDI event sent to any "send MIDI" module with the same parent and the same label parameter.
+		- `send data`
+			- Sends received events to all "receive data" modules with the same parent and the same label parameter.
+		- `send memory`
+			- Sends memory references to all "receive memory" modules with the same parent and the same label parameter.
+		- `send MIDI`
+			- Sends received MIDI events to all "receive MIDI" modules with the same parent and the same label parameter.
+		- `thru data`
+			- Returns any received data events. This module is useful for helping organise complicated routing on the graph.
+		- `thru memory`
+			- Returns any received memory references. This module is useful for helping organise complicated routing on the graph.
+		- `thru MIDI`
+			- Returns any received MIDI events. This module is useful for helping organise complicated routing on the graph. 
+	- *Bitwise Operations*
+		- `bitwise AND`
+			- Performs a bitwise AND of the a and b args, treating them as signed 64-bit integers. (vector processing)
+		- `bitwise arithmetic right shift`
+			- Performs an arithmetic (sign-filling) right-shift of x by amount places, treating them as signed 64-bit integers. (vector processing)
+		- `bitwise left rotate`
+			- Performs a left-rotate of x by amount places, treating them as signed 64-bit integers. (vector processing)
+		- `bitwise left shift`
+			- Performs a left-shift of x by amount places, treating them as signed 64-bit integers. (vector processing)
+		- `bitwise logical right shift`
+			- Performs a logical (zero-filling) right-shift of x by amount places, treating them as signed 64-bit integers. (vector processing)
+		- `bitwise NOT`
+			- Performs a bitwise NOT of x, treating it as a signed 64-bit integer. (vector processing)
+		- `bitwise OR`
+			- Performs a bitwise OR of the a and b args, treating them as signed 64-bit integers. (vector processing)
+		- `bitwise right rotate`
+			- Performs a right-rotate of x by amount places, treating them as signed 64-bit integers. (vector processing)
+		- `bitwise XNOR`
+			- Performs a bitwise XNOR of the a and b args, treating them as signed 64-bit integers. (vector processing)
+		- `bitwise XOR`
+			- Performs a bitwise XOR of the a and b args, treating them as signed 64-bit integers. (vector processing)
+		- `set bit`
+			- Return x with the nth bit set (if val is truthy), or cleared (if val is falsy.)
+		- `test bit`
+			- Returns true if the nth bit of x (treated as a signed 64-bit integer) is set. (vector processing)
+	- *Coercion*
+		- `to boolean (scalar)`
+			- Returns true or false depending on whether x is truthy or falsy.
+		- `to boolean (vector)`
+			- Returns true or false depending on whether x is truthy or falsy. (vector processing)
+		- `to float (scalar)`
+			- Converts x to a floating-point value. If x is numeric, the equivalent floating-point value will be returned, otherwise this module returns 1.0 (if x is truthy), or 0.0 (if x if falsy.)
+		- `to float (vector)`
+			- Converts x to a floating-point value. If x is numeric, the equivalent floating-point value will be returned, otherwise this module returns 1.0 (if x is truthy), or 0.0 (if x if falsy.) (vector processing)
+		- `to integer (scalar)`
+			- Converts x to an integer value. If x is numeric, the equivalent integer value will be returned, otherwise this module returns 1 (if x is truthy), or 0 (if x if falsy.)
+		- `to integer (vector)`
+			- Converts x to an integer value. If x is numeric, the equivalent integer value will be returned, otherwise this module returns 1 (if x is truthy), or 0 (if x if falsy.) (vector processing)
+		- `to string (scalar)`
+			- Converts x to a string.
+		- `to string (vector)`
+			- Converts x to a string. (vector processing)
+	- *Comparisons*
+		- `<`
+			- Returns true if the lhs arg is not equal to the rhs arg, otherwise will return false (vector processing)
+		- `<=`
+			- Returns true if the lhs arg is not equal to the rhs arg, otherwise will return false (vector processing)
+		- `>`
+			- Returns true if the lhs arg is not equal to the rhs arg, otherwise will return false (vector processing)
+		- `>=`
+			- Returns true if the lhs arg is not equal to the rhs arg, otherwise will return false (vector processing)
+		- `scalar!=`
+			- Returns true if the lhs arg is not equal to the rhs arg, otherwise will return false
+		- `scalar==`
+			- Returns true if the lhs arg is not equal to the rhs arg, otherwise will return false
+		- `vector!=`
+			- Returns true if the lhs arg is not equal to the rhs arg, otherwise will return false (vector processing)
+		- `vector==`
+			- Returns true if the lhs arg is not equal to the rhs arg, otherwise will return false (vector processing)
+	- *Component*
+		- `boolean table`
+			- A component for display and editing a 1-d array of boolean values.
+		- `checkbox`
+			- A checkbox component that can be put on the panel.
+		- `drop down`
+			- A dropdown component that can be put on the panel.
+		- `grid`
+			- A 2-d grid component that can be put on the panel.
+		- `keyboard`
+			- A MIDI keyboard component that can be put on the panel.
+		- `LED`
+			- An indicator that can be put on the panel.
+		- `momentary button`
+			- A button component that can be put on the panel and will send signal events when pressed or released.
+		- `numeric table`
+			- A component for display and editing a 1-d array of numeric values.
+		- `numeric value`
+			- A panel component that allows a number to be entered.
+		- `panel multi-line text`
+			- A component that displays multiple lines of text on the panel.
+		- `panel rectangle`
+			- A rectangular component on the panel with various customisable styles.
+		- `panel single-line text`
+			- A component that displays a single line of text on the panel.
+		- `rotary`
+			- A rotary dial component on the panel.
+		- `slider`
+			- A slider component on the panel.
+		- `toggle button`
+			- A two-state button component on the panel.
+		- `xy pad`
+			- An XY pad component.
+	- *Composite Data*
+		- `build array`
+			- Builds an array of size `length` by writes of 2-tuples (index, val) (or an array of such tuples) to the `write` index. The final array will be output when `read` receives an event.
+		- `build map`
+			- Builds a map by writes of 2-tuples (key, val) (or an array of such tuples) to the `write` index. The final map will be output when `read` receives an event. The current map can be cleared by sending an event to the `clear` inlet.
+		- `delete element`
+			- Deletes one or more elements from an array or map. When deleting from an array, keys must be either an integer index or array of integer indices. When deleting from a map, keys can be scalar or vector.
+		- `fill array`
+			- Creates an array sized `length` with each element set to `value`.
+		- `get element`
+			- If an element with the specified key is in the given collection, returns true from the `exists` outlet and the value itself from the `value` outlet. If the element doesn't exist, `exists` will produce false and `value` will return undefined. The keys can be scalar (in which case a single element is returned), or vector (in which case multiple elements are returned.) 
+		- `head`
+			- Returns the first element of an array.
+		- `insert element`
+			- Inserts the scalar `value` into `array` at index `position` and returns the new array.
+		- `is member`
+			- Returns true if the `collection` contains the specified `keys` element. Keys can be a vector or scalar value.
+		- `join`
+			- Joins together arrays `a` and `b` into a single array. Both arrays must have elements of the same type.
+		- `join at`
+			- Joins together arrays `a` and `b` into a single array by splicing `b` into `a` at index `position`. Both arrays must have elements of the same type.
+		- `length`
+			- Returns the number of elements in the given array, tuple, or map.
+		- `make empty array`
+			- Returns an empty array.
+		- `make empty map`
+			- Returns an empty map.
+		- `pack tuple`
+			- Builds an n-tuple from values assigned to inlets. Elements are all undefined by default.
+		- `pair`
+			- Creates a 2-tuple of the `first` and `second` values.
+		- `pop element`
+			- Returns the last element from an array, and the array with this element removed.
+		- `push element`
+			- Pushes `value` onto the end of `array` and returns the new array.
+		- `reverse`
+			- Reverses the given array.
+		- `reverse head`
+			- Returns the last element of an array.
+		- `reverse tail`
+			- Returns an array containing all the elements of the given array, except the last.
+		- `select element`
+			- Returns an array containing each element of `array` where the equivalent element in `pattern` is true. This is a vector processor and so `pattern` length need not match `array` length. For example, a pattern of [true, false, false] will select the 0th, 3rd, 6th, etc, elements.
+		- `set element`
+			- Sets elements in arrays, maps, or tuples. `changes` can either be a single (key, value) tuple, or an array of such values.
+		- `shift element`
+			- Returns the first element from an array, and the array with this element removed.
+		- `shuffle`
+			- Returns `array` with the elements rearranged. All permutations are equally likely.
+		- `slice`
+			- Returns a sub-section of `array` starting at `begin` and ending at `end`. The `begin` and `end` indices can be negative, in which case case -1 refers to the position after last element, -2 to after the second to last element, and so on.
+		- `tail`
+			- Returns an array containing all the elements of the given array, except the first.
+		- `unpack tuple`
+			- Expects an n-tuple, where n is the number of outlets, and outputs each tuple element in turn from its corresponding outlet.
+		- `unpair`
+			- Accepts a 2-tuple and outputs the first and second elements.
+		- `unshift element`
+			- Pushes `value` onto the beginning of `array` and returns the new array
+		- `which`
+			- Returns an array containing the indices of each truthy element in `array`.
+	- *Constant*
+		- `-1`
+			- Returns a constant integer -1.
+		- `0`
+			- Returns a constant integer 0.
+		- `1`
+			- Returns a constant integer 1.
+		- `1/1 ticks`
+			- Returns an integer equal to the number of ticks in 1 bar.
+		- `1/16 ticks`
+			- Returns an integer equal to the number of ticks in a 1/16 beat
+		- `1/16t ticks`
+			- Returns an integer equal to the number of ticks in a 1/16t beat
+		- `1/2 ticks`
+			- Returns an integer equal to the number of ticks in a 1/2 beat
+		- `1/2t ticks`
+			- Returns an integer equal to the number of ticks in a 1/2t beat
+		- `1/32 ticks`
+			- Returns an integer equal to the number of ticks in a 1/32 beat
+		- `1/32t ticks`
+			- Returns an integer equal to the number of ticks in a 1/32t beat
+		- `1/4 ticks`
+			- Returns an integer equal to the number of ticks in a 1/4 beat
+		- `1/4t ticks`
+			- Returns an integer equal to the number of ticks in a 1/4t beat
+		- `1/64 ticks`
+			- Returns an integer equal to the number of ticks in a 1/64 beat
+		- `1/64t ticks`
+			- Returns an integer equal to the number of ticks in a 1/64t beat
+		- `1/8 ticks`
+			- Returns an integer equal to the number of ticks in a 1/8 beat
+		- `1/8t ticks`
+			- Returns an integer equal to the number of ticks in a 1/8t beat
+		- `2/1 ticks`
+			- Returns an integer equal to the number of ticks in 2 bars.
+		- `3/1 ticks`
+			- Returns an integer equal to the number of ticks in 3 bars.
+		- `4/1 ticks`
+			- Returns an integer equal to the number of ticks in 4 bars.
+		- `5/1 ticks`
+			- Returns an integer equal to the number of ticks in 5 bars.
+		- `6/1 ticks`
+			- Returns an integer equal to the number of ticks in 6 bars.
+		- `7/1 ticks`
+			- Returns an integer equal to the number of ticks in 7 bars.
+		- `8/1 ticks`
+			- Returns an integer equal to the number of ticks in 8 bars.
+		- `e`
+			- Returns a constant floating-point e, where e is the base of natural logarithms.
+		- `false`
+			- Returns a boolean false value.
+		- `phi`
+			- Returns a constant floating-point phi, where phi is the golden ratio.
+		- `pi`
+			- Returns a constant floating-point phi, where phi is the golden ratio.
+		- `signal`
+			- Returns a constant signal object.
+		- `true`
+			- Returns a boolean true value.
+		- `undefined`
+			- Returns a constant undefined object.
+	- *Data Process*
+		- `break`
+			- Stops the inner-most loop (either for or for each) after this event has finished processing.
+		- `concat string`
+			- Produces a string that is the concatenation of `string 1` and `string 2`
+		- `crossfade`
+			- Returns a mix of the values `a` and `b`, with `x` specifying the mix amount and 0.0 being entirely `a`, 1.0 being `b`, and values between being a linear mix of the two. (vector processing)
+		- `data delay`
+			- Delays events by the given delay time.
+		- `data order`
+			- Routes the received data throught the outlets in left-to-right order.
+		- `data repeat`
+			- Repeatedly returns the given value at every tick specified by the time inlet (where time can be a floating-point value and the fractional part will be accumulated). Output will stop when the cancel inlet receives an event.
+		- `data thinner`
+			- Ignores subsequent values that are duplicates of the previously received one.
+		- `data wait`
+			- Outputs the received event after the number of ticks given to the time inlet. Only one message can be queued up at time, and a new message received will cancel any pending messages. The message can also be cancelled by sending an event to the cancel inlet.
+		- `drop elements`
+			- Returns an array containing everything but the first `number` elements in `array`.
+		- `find in string`
+			- Returns the position of `substring` within `string`, or -1 if the substring could not be found.
+		- `for`
+			- Outputs a sequence of values starting at `begin` and increasing by `increment` each iteration until it reaches the value `end`. This is a half-closed range and the `end` value itself is never output.
+		- `for each`
+			- Outputs each element of a map or array in turn.
+		- `get data type`
+			- Returns a string containing the type of the received value.
+		- `is not undefined`
+			- Returns true if the received value is another other than undefined.
+		- `is undefined`
+			- Returns true if the received value is undefined.
+		- `latch`
+			- Outputs the value previously sent to `write` when `read` receives an event.
+		- `latch once`
+			- Outputs the value previously sent to `write` when `read` receives an event. A `read` will also clear the latch and further `read` events will do nothing until another `write` occurs.
+		- `on every tick`
+			- Sends a signal on every tick. **Warning**: generating so much data can be a CPU intensive activity.
+		- `on setup`
+			- Sends a signal during its setup.
+		- `once`
+			- Will allow the first event it receives through, and will block all events thereafter.
+		- `string length`
+			- Returns an integer containing the number of characters in the given string.
+		- `substring`
+			- Returns the portion of `string` starting from `begin` and finishing before `end`.
+		- `swinger`
+			- Briefly delay any received events by the specified swing parameters to give a periodic set of events a swung feel.
+		- `take elements`
+			- Returns an array containing the first `number` elements in `array`.
+		- `template`
+			- Returns a data value as specified in the value parameter, replacing each instance of `$0` with the value of the `$0` inlet, `$1` with the value of the `$1` inlet, etc. Valid types are: integers, e.g. `23`; floating-point numbers, e.g. `23.5`; boolean values, e.g. `true`; signal; undefined; strings e.g. `"chromatic"`; arrays e.g. `[2, 3, 5]`; maps e.g. `{1: "Major", 2: "Minor"}`; tuples e.g. `("noteon", 60)`
+		- `type check`
+			- Checks the type of the received value and raises an error if it doesn't match the expected type.
+	- *Data Source*
+		- `arithmetic sequence`
+			- Returns an array sized `length`, containing the arithmetic sequence that starts with `begin` and with each value `difference` larger than the previous.
+		- `automation`
+			- Outputs the current value of the selected automation curve when the transport is playing.
+		- `aux step sequencer`
+			- A step sequencer that produces a stream of numeric values.
+		- `Bernoulli distribution`
+			- Generates a single true or false value using the Bernoulli distribution with the decimal probability `P`.
+		- `Bernoulli distribution list`
+			- Generates an array sized `length` of true or false values using the Bernoulli distribution with the decimal probability `P`.
+		- `beta distribution`
+			- Generates a single value using the beta distribution with parameters `alpha` and `beta`.
+		- `beta distribution list`
+			- Generates an array sized `length` of values using the beta distribution with parameters `alpha` and `beta`.
+		- `data`
+			- Returns a data value as specified in the value parameter. Valid types are: integers, e.g. `23`; floating-point numbers, e.g. `23.5`; boolean values, e.g. `true`; signal; undefined; strings e.g. `"chromatic"`; arrays e.g. `[2, 3, 5]`; maps e.g. `{1: "Major", 2: "Minor"}`; tuples e.g. `("noteon", 60)`
+		- `geometric sequence`
+			- Returns an array sized `length`, containing the geometric sequence that starts with `begin` and with each value `ratio` times larger than the previous.
+		- `metronome`
+			- Outputs a signal on the specified beat division if the transport is playing.
+		- `normal distribution`
+			- Generates a single value using the normal distribution with parameters `mu` and `sigma`.
+		- `normal distribution list`
+			- Generates an array sized `length` of values using the normal distribution with parameters `mu` and `sigma`.
+		- `random`
+			- Generates a single value in the range [0, 1].
+		- `random list`
+			- Generates an array sized `length` of values in the range [0, 1].
+		- `uniform int distribution`
+			- Generates a single integer value between a and b, inclusive.
+		- `uniform int distribution list`
+			- Generates Generates an array sized `length` of integer values between a and b, inclusive.
+		- `unpack channelpressure`
+			- Produces the parameters that form a channelpressure MIDI message. Other MIDI messages are passed through the surplus outlet.
+		- `unpack clock`
+			- Produces a signal when it receives a MIDI clock message. Other MIDI messages are passed through the surplus outlet.
+		- `unpack continue`
+			- Produces a signal when it receives a MIDI continue message. Other MIDI messages are passed through the surplus outlet.
+		- `unpack controller`
+			- Produces the parameters that form a controller MIDI message. Other MIDI messages are passed through the surplus outlet
+		- `unpack noteoff`
+			- Produces the parameters that form a noteoff MIDI message. Other MIDI messages are passed through the surplus outlet
+		- `unpack noteon`
+			- Produces the parameters that form a noteon MIDI message. Other MIDI messages are passed through the surplus outlet
+		- `unpack pitchbend`
+			- Produces the parameters that form a pitchbend MIDI message. Other MIDI messages are passed through the surplus outlet
+		- `unpack polypressure`
+			- Produces the parameters that form a polypressure MIDI message. Other MIDI messages are passed through the surplus outlet.
+		- `unpack programchange`
+			- Produces the parameters that form a programchange MIDI message. Other MIDI messages are passed through the surplus outlet
+		- `unpack songposition`
+			- Sends the position value for any received songposition MIDI message. Other MIDI messages are passed through the surplus outlet.
+		- `unpack start`
+			- Produces a signal when it receives a MIDI start message. Other MIDI messages are passed through the surplus outlet.
+		- `unpack stop`
+			- Produces a signal when it receives a MIDI stop message. Other MIDI messages are passed through the surplus outlet.
+		- `unpack sysex`
+			- Produces the parameters that form a sysex MIDI message. Other MIDI messages are passed through the surplus outlet.
+	- *Debugging*
+		- `assert`
+			- If the debugger is enabled, assert will raise an error if the received value is falsy, otherwise it will pass it through to the outlet. If the debugger is disabled, assert will always pass the value through.
+		- `debug data`
+			- Passes the given value through only when the debugger is enabled. The value is ignored if the debugger is disabled.
+		- `debug MIDI`
+			- Passes the given MIDI message through only when the debugger is enabled. The message if ignored is the debugger is disabled
+		- `debug print`
+			- Converts the given arg to a string and displays it in the console only if the debugger is enabled.
+		- `error`
+			- Converts the given value to a string and displays it as en error in the console.
+	- *Graph Adornments*
+		- `graph multi-line text`
+			- Displays multiple lines of text on the graph.
+		- `graph rectangle`
+			- Displays a rectangular shape on the graph.
+		- `graph single-line text`
+			- Displays a single line of text on the graph.
+	- *Input*
+		- `key press`
+			- Sends a signal event every time the key specified in the key parameter is pressed. Key presses will only be sent when the graph is locked.
+		- `MIDI input`
+			- Returns events for any MIDI messages that arrive to the selected device.
+		- `performance parameter`
+			- Sends the current value of the specified performance parameter when the parameter is changed.
+		- `poll key`
+			- When called this will return true if the key specified in the key parameter is pressed, otherwise will return false.
+	- *Logic*
+		- `logic AND`
+			- True only when both args are truthy. (vector processing)
+		- `logic NAND`
+			- True only when both args are truthy. (vector processing)
+		- `logic NOR`
+			- True if both args are falsy. (vector processing)
+		- `logic NOT`
+			- True if x is falsy, and vice-versa. (vector processing)
+		- `logic OR`
+			- True if either arg is truthy. (vector processing)
+		- `logic XNOR`
+			- True if both args are truthy or boths are falsy. (vector processing)
+		- `logic XOR`
+			- True if one arg is truthy and the other falsy. (vector processing)
+	- *Macro*
+		- `active data inlet`
+			- An active data inlet for a `macro`.
+		- `data inlet`
+			- Data inlet into a `macro`.
+		- `data outlet`
+			- Data outlet from a `macro`.
+		- `macro`
+			- Container for other objects
+		- `memory inlet`
+			- An inlet to pass a memory reference into a `macro`.
+		- `memory outlet`
+			- An inlet to pass a memory reference out of a `macro`.
+		- `MIDI inlet`
+			- MIDI inlet into a `macro`
+		- `MIDI outlet`
+			- MIDI inlet into a `macro`
+	- *Mapping*
+		- `boolean destination`
+			- Provides a boolean destination to which remote mappings can be mapped and routed into the graph.
+		- `boolean source`
+			- Creates a new boolean remote mapping source and allows events on the graph to be routed to mapped devices.
+		- `numeric destination`
+			- Provides a numeric destination to which remote mappings can be mapped and routed into the graph.
+		- `numeric source`
+			- Creates a new numeric remote mapping source and allows events on the graph to be routed to mapped devices.
+		- `trigger destination`
+			- Provides a trigger destination to which remote mappings can be mapped and routed into the graph.
+		- `trigger source`
+			- Provides a trigger destination to which remote mappings can be mapped and routed into the graph.
+	- *Maths*
+		- `absolute`
+			- Provides a trigger destination to which remote mappings can be mapped and routed into the graph. (vector processing)
+		- `acos`
+			- Returns the arc cosine of x (in radians). (vector processing)
+		- `add`
+			- Returns the sum of the arguments. (vector processing)
+		- `asin`
+			- Returns the arc sine of x (in radians). (vector processing)
+		- `atan`
+			- Returns the arc tangent of x (in radians). (vector processing)
+		- `atan2`
+			- Returns the arc tangent of x/y (in radians), using the sign of the arguments to deduce the result's quadrant. (vector processing)
+		- `ceiling`
+			- Returns x rounded up to the nearest integer value. (vector processing)
+		- `clamp`
+			- Returns x, clamped to be between minimum and maximum (inclusive.) (vector processing)
+		- `cos`
+			- Returns the cosine of x (in radians). (vector processing)
+		- `decrement`
+			- Returns the value preceeding the given argument. (vector processing)
+		- `divide`
+			- Returns the floating-point quotient of a/b. (vector processing)
+		- `exp`
+			- Returns the value e ^ arg, where e is the base of natural logarithms. (vector processing)
+		- `floor`
+			- Returns x rounded down to the nearest integer value. (vector processing)
+		- `floor division`
+			- Returns the floor (or integer) division of a/b. (vector processing)
+		- `fraction`
+			- Returns the fractional part (anything after the decimal point) of x. (vector processing)
+		- `increment`
+			- Returns the value succeeding the given argument. (vector processing)
+		- `ln`
+			- Returns the natural logarithm of e. (vector processing)
+		- `log`
+			- Returns the base-10 logarithm of x. (vector processing)
+		- `maximum`	
+			- Returns the maximum numeric value of the given arguments. (vector processing)
+		- `minimum`
+			- Returns the minimum numeric value of the given arguments. (vector processing)
+		- `modulo`
+			- Returns the modulo of a and b. (vector processing)
+		- `multiply`
+			- Returns the product of the arguments. (vector processing)
+		- `pow`
+			- Returns a raised to the b power. (vector processing)
+		- `quantize`
+			- Quantizes x to be between minimum and maximum (inclusive) and to the nearest interval. (vector processing)
+		- `reciprocal`
+			- Returns the value 1 / arg. (vector processing)
+		- `remainder`
+			- Returns the remainder when a is divided by b. (vector processing)
+		- `remap`
+			- Remaps x from one range to another. The ranges are not clamped so both the input (x) and the output can exceed the given ranges. (vector processing)
+		- `round`
+			- Returns x rounded to the nearest integer value. (vector processing)
+		- `sign`
+			- Returns an integer -1 if the arg's value is < 0; 0 if it is equal to 0; and 1 if > 0. (vector processing)
+		- `sin`
+			- Returns the sine of x (in radians). (vector processing)
+		- `subtract`
+			- Returns the difference of the arguments. (vector processing)
+		- `tan`
+			- Returns the tangent of x (in radians). (vector processing)
+		- `unary minus`
+			- Returns -x. (vector processing)
+	- *MIDI Process*
+		- `arpeggiator`
+			- A MIDI arpeggiator.
+		- `couple note`
+			- Converts a note MIDI message to a coupled note, i.e., one that will automatically have a noteoff inserted if its source module or cable is deleted. Other MIDI messages types are unaltered.
+		- `distinguish notes`
+			- Consecutive noteon MIDI messages without intervening noteoffs will be ignored; that is, only one noteon of a specific key and channel will be allowed to pass through at a time.
+		- `flush`
+			- Sends a matching noteoff message for every noteon the module has received without accompanying noteoffs.
+		- `get channel`
+			- Returns the channel (1-16) of the MIDI message, or undefined if the message has no channel.
+		- `get key`
+			- Returns the key (0-127) of the MIDI message, or undefined if the message has no key.
+		- `get MIDI type`
+			- Returns a string containing the type of the received MIDI message.
+		- `give note id`
+			- Allocates an id, starting from 0, for each simultaneous playing note. An id is allocated with a noteon and released with noteoff. polypressure and noteoff messages will return the same id as their corresponding previous noteon. Other MIDI messages types with return an undefined id.
+		- `hold`
+			- Whilst a note is playing, any succeeding noteon messages with be held until either an event is sent to the release inlet, or a noteon is received after all previous noteons have received noteoffs.
+		- `MIDI delay`
+			- Delays MIDI messages by the given delay time.
+		- `MIDI order`
+			- Routes the received MIDI message throught the outlets in left-to-right order.
+		- `MIDI repeat`
+			- Repeatedly returns the given MIDI message at every tick specified by the time inlet (where time can be a floating-point value and the fractional part will be accumulated). Output will stop when the cancel inlet receives an event.
+		- `MIDI swinger`
+			- Briefly delay any received MIDI message by the specified swing parameters to give a periodic set of messages a swung feel.
+		- `MIDI thinner`
+			- Ignores subsequent MIDI messages that are duplicates of the previously received one.
+		- `MIDI to signal`
+			- Returns a signal value when a MIDI message is received.
+		- `MIDI to tuple`
+			- Converts a MIDI message to a tuple representation.
+		- `MIDI wait`
+			- Outputs the received MIDI message after the number of ticks given to the time inlet. Only one event can be queued up at time, and a new event received will cancel any pending events. The event can also be cancelled by sending an event to the cancel inlet.
+		- `note priority`
+			- Converts a polyphonic MIDI stream to a monophonic one by picking only the low, high, or last note.
+		- `polyphony`
+			- Keeps a running count of the number of active notes, that is, a count of the noteons minus the count of the noteoffs.
+		- `set channel`
+			- Sets the channel for an input MIDI message. MIDI messages that have no key are passed through unaltered.
+		- `set key`
+			- Sets the key for an input MIDI message. MIDI messages that have no key are passed through unaltered.
+		- `sustain`
+			- If the sustain inlet receives a truthy value, it will sustain any succeeding notes by holding their noteoffs until the sustain inlet receives a falsy value.
+		- `toggle`
+			- Alternate noteon messages of the same key and channel will toggle a note on then off. An event to the release inlet will turn all notes off.
+		- `transpose`
+			- `macro` that transposes MIDI notes by integer semitones 
+		- `tuple to MIDI`
+			- Converts a tuple (in the format produced by a MIDI to tuple module) to a MIDI message.
+		- `uncouple note`
+			- Converts a MIDI note message to an uncoupled note, i.e., on that will not have noteoffs automatically generated for it. Other MIDI messages types are unaltered.
+	- *MIDI Source*
+		- `grid step sequencer`
+			- An x0x-style step sequencer.
+		- `MIDI beat clock generator`	
+			- Creates the MIDI messages required to sync a slave to the transport.
+		- `MIDI player`
+			- Plays the given file from the MIDI pool when play receives a truthy value, and stops when it receives a falsy one. 
+		- `mono step sequencer`
+			- A monophonic step sequencer.
+		- `pack channelspressure`
+			- Builds a channelpressure MIDI message from the given values. If one or more arguments are arrays, one MIDI message will be created for each element in the array.
+		- `pack clock`
+			- Returns a MIDI clock message.
+		- `pack continue`
+			- Returns a MIDI clock continue message.
+		- `pack controller`
+			- Builds a controller MIDI message from the given values. If one or more arguments are arrays, one MIDI message will be created for each element in the array.
+		- `pack note`
+			- Creates a noteon MIDI message, and then duration ticks later, a matching noteoff MIDI message. If one or more arguments are arrays, one note will be created for each element in the array.
+		- `pack noteoff`
+			- Builds a noteoff MIDI message from the given values. If one or more arguments are arrays, one MIDI message will be created for each element in the array.
+		- `pack noteon`
+			- Builds a noteon MIDI message from the given values. If one or more arguments are arrays, one MIDI message will be created for each element in the array.
+		- `pack pitchbend`
+			- Builds a pitchbend MIDI message from the given values. If one or more arguments are arrays, one MIDI message will be created for each element in the array.
+		- `pack polypressure`
+			- Builds a polypressure MIDI message from the given values. If one or more arguments are arrays, one MIDI message will be created for each element in the array.
+		- `pack programchange`
+			- Builds a programchange MIDI message from the given values. If one or more arguments are arrays, one MIDI message will be created for each element in the array.
+		- `pack songposition`
+			- Returns a MIDI clock song position message with the given position.
+		- `pack start`
+			- Returns a MIDI clock start message.
+		- `pack stop`
+			- Returns a MIDI clock stop message.
+		- `pack sysex`
+			- Builds a MIDI sysex message from the given data. The data can either be a single integer value, or an array of integer values. The 0xf0 start byte and 0xf7 end byte are added automatically and so should not be specified.
+		- `poly step sequencer`
+			- A polyphonic step sequencer.
+	- *Output*
+		- `CV to audio out`
+			- Writes the given value to the audio output, where it will be treated as a CV control signal.
+		- `MIDI output`
+			- Sends any MIDI messages received to the given device.
+		- `mixer parameter`
+			- Sets the value of mixer and hosted plug-in parameters.
+		- `print`
+			- Converts the argument to a string and display it in the console.
+		- `write to MIDI pool`
+			- Writes the received MIDI data to a file in the MIDI pool. Send a truthy value to the record inlet to begin recording, and a falsy one to stop recording (which will then create the file.)
+	- *Script*
+		- `Lua script`
+			- Lua script object
+	- *Switch*	
+		- `data branch`
+			- Routes the data received in the value inlet to either the true or false outlet depending on the value of the control property. Control is false by default.
+		- `data switch 1 to N`
+			- Routes the data received in the value inlet to the outlet specified by the value of the control property. Control is 0 by default.
+		- `data switch N to 1`
+			- Passes through events received only in the inlet specified by the value of the control property. Control is 0 by default.
+		- `MIDI branch`
+			- Routes the MIDI message received in the MIDI inlet to either the true or false outlet depending on the value of the control property. Control is false by default
+		- `MIDI switch 1 to N`
+			- Routes the MIDI message received in the MIDI inlet to the outlet specified by the value of the control property. Control is 0 by default
+		- `MIDI switch N to 1`
+			- Passes through MIDI messages received only in the inlet specified by the value of the control property. Control is 0 by default.
+	- *Tuning*
+		- `data force to scale`
+			- Takes a number, or an array of numbers, representing MIDI keys and alters them so they are in tune with the specified tonic and scale.
+		- `get scale degrees`
+			- Returns a boolean array specifying which pitch classes are valid with the current tonic and scale. The first element is true if C is valid, otherwise false. The second elements is for C#, the third for D, etc...
+		- `increment in scale`
+			- Takes a number, or an array of numbers, treating them as MIDI keys, and alters them by the number of in-scale steps given to `amount`, using the specified scale and tonic. (vector processing)
+		- `is in scale`
+			- Takes a number, or an array of numbers, treating them as MIDI keys, and alters them by the number of in-scale steps given to `amount`, using the specified scale and tonic.
+		- `MIDI force to scale`
+			- Takes a number, or an array of numbers, treating them as MIDI keys, and alters them by the number of in-scale steps given to `amount`, using the specified scale and tonic.
+	- *Variables*
+		- `memory`
+			- Allocates space for a shared memory item, which can be read from and written to with store and load modules.
+		- `memory load`
+			- Returns the current value in the downstream memory module.
+		- `memory store`
+		- Writes the given value to the downstream memory module.
