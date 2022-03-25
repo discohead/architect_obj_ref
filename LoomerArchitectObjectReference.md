@@ -103,7 +103,7 @@
 			- A component for display and editing a 1-d array of boolean values.
 		- `checkbox`
 			- A checkbox component that can be put on the panel.
-		- `drop down`
+		- `dropdown`
 			- A dropdown component that can be put on the panel.
 		- `grid`
 			- A 2-d grid component that can be put on the panel.
