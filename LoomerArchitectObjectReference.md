@@ -255,7 +255,7 @@
 			- Returns a constant undefined object.
 	- *Data Process*
 		- `break`
-			- Stops the inner-most loop (either for or for each) after this event has finished processing.
+			- Stops the inner-most loop (either `for` or `for each`) after this event has finished processing.
 		- `concat string`
 			- Produces a string that is the concatenation of `string 1` and `string 2`
 		- `crossfade`
@@ -640,4 +640,4 @@
 		- `memory load`
 			- Returns the current value in the downstream memory module.
 		- `memory store`
-		- Writes the given value to the downstream memory module.
+			- Writes the given value to the downstream memory module.
